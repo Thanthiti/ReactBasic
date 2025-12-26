@@ -7,19 +7,25 @@ jobs:
   # 2. ชื่อ Job (งานเหมา)
   check-code-quality:
     runs-on: ubuntu-latest
-    
+
     steps:
-        - name: Check out code (ดึงโค้ด)
-          uses: actions/checkout@v4
+      - name: Check out code (ดึงโค้ด)
+        uses: actions/checkout@v4
 
-        - name: Setup Node.js (ติดตั้ง Node)
-          uses: actions/setup-node@v4
-          with:
-            node-version: '20'
-            cache: 'npm'
+      - name: Setup Node.js (ติดตั้ง Node)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
 
-        - name: Install dependencies (เตรียมวัตถุดิบ)
-          run: npm ci
+      - name: Install dependencies (เตรียมวัตถุดิบ)
+        run: npm ci
 
-        - name: Build (ลงมือปรุง)
-          run: npm run build
+      - name: Build (ลงมือปรุง)
+        run: npm run build
+
+      - name: Upload Build Artifact (แพ็กใส่กล่อง)
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-website-files # ชื่อที่จะแปะหน้ากล่อง
+          path: dist
