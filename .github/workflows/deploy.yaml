@@ -9,9 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     
     # 3. ขั้นตอนย่อย
-    steps:
-      - name: Check out code (ดึงโค้ดล่าสุดมา)
+   steps:
+      - name: Check out code (ดึงโค้ด)
         uses: actions/checkout@v4
-      
-      - name: Say Hello (ทักทาย)
-        run: echo "กำลังเริ่มตรวจสอบโค้ดครับ..."
+
+      - name: Setup Node.js (ติดตั้ง Node)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies (เตรียมวัตถุดิบ)
+        run: npm ci
+
+      - name: Build (ลงมือปรุง)
+        run: npm run build
