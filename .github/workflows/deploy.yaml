@@ -21,6 +21,12 @@ jobs:
       - name: Install dependencies (เตรียมวัตถุดิบ)
         run: npm ci
 
+      - name: Test
+        run: npm run test
+
+      - name: Lint (ตรวจสอบ)
+        run: npm run lint
+
       - name: Build (ลงมือปรุง)
         run: npm run build
 
