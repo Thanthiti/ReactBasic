@@ -5,6 +5,11 @@ pipeline{
             steps {
                 bat 'echo hello word'
             }
+        }
+        stage('Build'){
+            steps{
+                bat 'mvn clean install'
+            }
         
         }
     }
