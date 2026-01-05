@@ -5,6 +5,7 @@ pipeline{
             steps {
                 bat 'echo hello word'
             }
+            
         }
     }
 }
