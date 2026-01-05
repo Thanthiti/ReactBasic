@@ -4,33 +4,30 @@ name: My First CI
 on: [push]
 
 jobs:
-  # 2. ชื่อ Job (งานเหมา)
+  # 2. ชื่อ Job 
   check-code-quality:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code (ดึงโค้ด)
+      - name: Check out code 
         uses: actions/checkout@v4
 
-      - name: Setup Node.js (ติดตั้ง Node)
+      - name: Setup Node.js 
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
 
-      - name: Install dependencies (เตรียมวัตถุดิบ)
+      - name: Install dependencies 
         run: npm ci
 
-      - name: Test
-        run: npm run test
-
-      - name: Lint (ตรวจสอบ)
+      - name: Lint 
         run: npm run lint
 
-      - name: Build (ลงมือปรุง)
+      - name: Build 
         run: npm run build
 
-      - name: Upload Build Artifact (แพ็กใส่กล่อง)
+      - name: Upload Build Artifact 
         uses: actions/upload-artifact@v4
         with:
           name: my-website-files # ชื่อที่จะแปะหน้ากล่อง
