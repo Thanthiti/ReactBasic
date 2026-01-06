@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage ('Test checkout code from git hub'){
             steps{
-                bat "echo Hellos"
+                bat "echo HellosEE"
             }
         }
     }
